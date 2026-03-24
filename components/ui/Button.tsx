@@ -9,27 +9,22 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-export default function Button({ children, href, variant = 'primary', className = '', onClick }: ButtonProps) {
-  const baseStyle: React.CSSProperties =
-    variant === 'primary'
-      ? { background: 'var(--accent)', color: 'white', fontFamily: 'var(--sans)', letterSpacing: '0.2px' }
-      : { color: 'var(--text-secondary)', borderColor: 'var(--border)', fontFamily: 'var(--sans)' };
-
+export default function Button({ children, href, variant = 'primary', className = '', onClick, ...props }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const baseClass =
     variant === 'primary'
-      ? 'inline-flex items-center gap-2 border-none px-8 py-3 rounded-md text-sm font-medium cursor-pointer no-underline transition-all hover:opacity-90'
-      : 'inline-flex items-center bg-transparent border px-7 py-3 rounded-md text-sm font-normal cursor-pointer no-underline transition-all hover:opacity-90';
+      ? 'iypt-btn iypt-btn-primary'
+      : 'iypt-btn iypt-btn-ghost';
 
   if (href) {
     return (
-      <Link href={href} className={`${baseClass} ${className}`} style={baseStyle}>
+      <Link href={href} className={`${baseClass} ${className}`}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={`${baseClass} ${className}`} style={baseStyle} onClick={onClick}>
+    <button className={`${baseClass} ${className}`} onClick={onClick} {...props}>
       {children}
     </button>
   );

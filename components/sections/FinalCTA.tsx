@@ -1,6 +1,14 @@
+
+
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import TeamSubmissionModal from '@/components/ui/TeamSubmissionModal';
+
 
 export default function FinalCTA() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <section
       id="postular"
@@ -16,12 +24,10 @@ export default function FinalCTA() {
       >
         Las inscripciones cierran el 30 de abril de 2026. El formulario de postulación requiere los datos del equipo y del profesor guía.
       </p>
-      <Link
-        href="#"
-        style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--accent)', color: 'white', border: 'none', padding: '0.9rem 2.5rem', borderRadius: '6px', fontFamily: 'var(--sans)', fontSize: '1rem', fontWeight: 500, textDecoration: 'none', letterSpacing: '0.2px' }}
-      >
+      <Button onClick={() => setModalOpen(true)}>
         Postular equipo
-      </Link>
+      </Button>
+      <TeamSubmissionModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <p style={{ marginTop: '1.5rem', fontSize: '0.78rem', color: 'var(--text-faint)' }}>
         Consultas:{' '}
         <Link href="mailto:contacto@iyptchile.cl" style={{ color: 'var(--accent-light)', textDecoration: 'none' }}>
