@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const NAV_LINKS = [
-  { label: 'Formato',    href: '#formato' },
-  { label: 'Problemas',  href: '#problemas-section' },
-  { label: 'Calendario', href: '#calendario' },
-  { label: 'FAQ',        href: '#faq' },
+  { label: 'Formato',    href: '/#formato' },
+  { label: 'Problemas',  href: '/#problemas-section' },
+  { label: 'Calendario', href: '/#calendario' },
+  { label: 'FAQ',        href: '/#faq' },
+  { label: 'Bases',      href: '/bases' },
 ];
 
 export default function Navigation() {
@@ -25,7 +26,7 @@ export default function Navigation() {
     >
       <div style={{ padding: '0.9rem 2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {/* Brand */}
-        <Link href="#" style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', textDecoration: 'none', color: 'var(--text)' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', textDecoration: 'none', color: 'var(--text)' }}>
           <span style={{ fontFamily: 'var(--serif)', fontSize: '1.15rem', fontWeight: 600, letterSpacing: '-0.5px' }}>
             IYPT Chile
           </span>
@@ -48,7 +49,7 @@ export default function Navigation() {
             </Link>
           ))}
           <Link
-            href="#postular"
+            href="/#postular"
             style={{ background: 'var(--accent)', color: 'white', padding: '0.5rem 1.2rem', borderRadius: '6px', fontWeight: 500, fontSize: '0.8rem', textDecoration: 'none', transition: 'background 0.2s' }}
             onMouseEnter={e => (e.currentTarget.style.background = 'var(--accent-light)')}
             onMouseLeave={e => (e.currentTarget.style.background = 'var(--accent)')}
@@ -83,7 +84,7 @@ export default function Navigation() {
           </Link>
         ))}
         <Link
-          href="#postular"
+          href="/#postular"
           style={{ background: 'var(--accent)', color: 'white', padding: '0.5rem 1.2rem', borderRadius: '6px', fontWeight: 500, fontSize: '0.9rem', textDecoration: 'none', textAlign: 'center' }}
           onClick={() => setMobileOpen(false)}
         >
